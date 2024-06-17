@@ -14,6 +14,49 @@ git diff # check the difference between the current state and the last commit(HE
 git diff HEAD~2 yourfilename # check the difference between the current state and the 2nd last commit
 ```
 
+## Delete a corrupted branch
+It seems that accepting the pull request may have caused some corruption in your repository, resulting in the creation of a branch with an invalid name (`main 2`). Here’s how you can resolve the issue:
+
+### Steps to Resolve the Invalid Branch Issue
+
+1. **Delete the Invalid Branch Reference:**
+   Manually delete the invalid branch reference.
+
+   ```bash
+   rm -f .git/refs/heads/main\ 2
+   ```
+
+2. **Clean Up Logs and References:**
+   Clean up any logs or references that might be pointing to the invalid branch.
+
+   ```bash
+   rm -f .git/logs/refs/heads/main\ 2
+   rm -f .git/logs/refs/remotes/origin/main\ 2
+   ```
+
+3. **Check Remaining Branches:**
+   Verify the branches in your repository again.
+
+   ```bash
+   git branch
+   ```
+
+4. **Fetch and Reset the Main Branch:**
+   Fetch the latest changes from the remote repository and reset your local main branch.
+
+   ```bash
+   git fetch origin
+   git reset --hard origin/main
+   ```
+
+5. **Rebase Local Changes:**
+   If you have local changes that need to be incorporated, rebase them onto the updated main branch.
+
+   ```bash
+   git pull --rebase origin main
+   ```
+
+
 ## Rewind to a previous commit
 ```bash
 git checkout HEAD~2 yourfilename # revert the file to the 2nd last commit
