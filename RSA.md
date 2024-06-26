@@ -10,4 +10,6 @@
 
 [fMRI example](https://www.sciencedirect.com/science/article/pii/S1053811920303372)
 
-[EEG example](https://www.sciencedirect.com/science/article/pii/S1053811921010909)
+[EEG example1](https://www.sciencedirect.com/science/article/pii/S1053811921010909)
+
+[EEG example2](https://www.jneurosci.org/content/44/26/e1101232024)
